@@ -1,0 +1,11 @@
+{
+  "id": 0,
+  "username": "jo",
+  "email": "not-an-email",
+  "profile": {
+    "firstName": "John",
+    "age": 200
+  },
+  "roles": ["user", "user"],
+  "createdAt": "2024-01-15"
+}

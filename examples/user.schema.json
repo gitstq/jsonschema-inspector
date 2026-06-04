@@ -1,0 +1,71 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://example.com/schemas/user.json",
+  "title": "User",
+  "description": "A user account in the system",
+  "type": "object",
+  "required": ["id", "username", "email"],
+  "properties": {
+    "id": {
+      "type": "integer",
+      "description": "Unique user identifier",
+      "minimum": 1
+    },
+    "username": {
+      "type": "string",
+      "description": "User login name",
+      "minLength": 3,
+      "maxLength": 50,
+      "pattern": "^[a-zA-Z0-9_]+$"
+    },
+    "email": {
+      "type": "string",
+      "description": "User email address",
+      "format": "email"
+    },
+    "profile": {
+      "type": "object",
+      "description": "User profile information",
+      "properties": {
+        "firstName": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 100
+        },
+        "lastName": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 100
+        },
+        "age": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 150
+        },
+        "avatar": {
+          "type": "string",
+          "format": "uri"
+        }
+      }
+    },
+    "roles": {
+      "type": "array",
+      "description": "User roles",
+      "items": {
+        "type": "string",
+        "enum": ["admin", "user", "moderator", "guest"]
+      },
+      "minItems": 1,
+      "uniqueItems": true
+    },
+    "createdAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "isActive": {
+      "type": "boolean",
+      "default": true
+    }
+  },
+  "additionalProperties": false
+}
